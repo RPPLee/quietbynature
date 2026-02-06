@@ -57,11 +57,16 @@
 	border-bottom-width: 2px;
 }
 
-/* Connecting lines between logo/content/nav - thicker */
+/* Connecting line between logo and content - thicker */
 #header > *:before {
 	background: rgba(78, 205, 196, 0.5) !important;
 	width: 2px !important;
 	left: calc(50% - 1px) !important;
+}
+
+/* Remove connecting line above nav buttons */
+#header nav:before {
+	display: none !important;
 }
 
 /* ==========================================
