@@ -36,11 +36,11 @@
 }
 
 /* ==========================================
-   LOGO
+   LOGO - bolder border
    ========================================== */
 
 #header .logo {
-	border-color: #4ECDC4;
+	border: solid 2px #4ECDC4;
 }
 
 #header .logo .icon:before {
@@ -48,17 +48,36 @@
 }
 
 /* ==========================================
-   HEADER CONTENT BORDERS
+   HEADER CONTENT BORDERS - bolder, more visible
    ========================================== */
 
 #header .content {
-	border-color: rgba(78, 205, 196, 0.5);
-	border-width: 1px;
+	border-color: rgba(78, 205, 196, 0.7);
+	border-top-width: 2px;
+	border-bottom-width: 2px;
 }
 
-/* Connecting lines between logo/content/nav */
+/* Connecting lines between logo/content/nav - thicker */
 #header > *:before {
-	background: rgba(255, 255, 255, 0.4) !important;
+	background: rgba(78, 205, 196, 0.5) !important;
+	width: 2px !important;
+	left: calc(50% - 1px) !important;
+}
+
+/* ==========================================
+   MOBILE PADDING FIX - text was touching border
+   ========================================== */
+
+@media screen and (max-width: 480px) {
+	#header .content .inner {
+		padding: 2.5rem 1.5rem !important;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	#header .content .inner {
+		padding: 2.5rem 1.5rem;
+	}
 }
 
 /* ==========================================
@@ -80,25 +99,31 @@
 }
 
 /* ==========================================
-   NAV BUTTONS - frosted dark glass
+   NAV BUTTONS - solid dark bg, NO backdrop-filter
+   (backdrop-filter causes flickering on mobile Safari)
    ========================================== */
 
 #header nav ul li a {
-	border-color: rgba(255, 255, 255, 0.6);
-	border-width: 1px;
-	background-color: rgba(0, 0, 0, 0.35);
-	backdrop-filter: blur(6px);
-	-webkit-backdrop-filter: blur(6px);
+	border: solid 2px rgba(255, 255, 255, 0.7) !important;
+	background-color: rgba(0, 0, 0, 0.45);
 	font-weight: 400;
 }
 
 #header nav ul li a:hover {
 	background-color: rgba(78, 205, 196, 0.25);
-	border-color: #4ECDC4;
+	border-color: #4ECDC4 !important;
 }
 
 #header nav ul li a:active {
 	background-color: rgba(78, 205, 196, 0.35);
+}
+
+/* Override mobile stacked button borders too */
+@media screen and (max-width: 480px) {
+	#header nav ul li {
+		border-top-color: rgba(255, 255, 255, 0.7) !important;
+		border-top-width: 2px;
+	}
 }
 
 /* ==========================================
@@ -210,6 +235,7 @@ button.primary:hover,
 
 /* ==========================================
    FOOTER - small frosted pill, just the text
+   No backdrop-filter to avoid mobile glitches
    ========================================== */
 
 #footer .copyright {
@@ -217,9 +243,7 @@ button.primary:hover,
 	font-size: 0.8rem;
 	font-weight: 400;
 	color: #ffffff;
-	background-color: rgba(0, 0, 0, 0.4);
-	backdrop-filter: blur(6px);
-	-webkit-backdrop-filter: blur(6px);
+	background-color: rgba(0, 0, 0, 0.5);
 	padding: 0.4rem 1rem;
 	border-radius: 4px;
 	display: inline-block;
