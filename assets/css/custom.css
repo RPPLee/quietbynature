@@ -215,13 +215,30 @@ button.primary:hover,
    FOOTER - clear and readable
    ========================================== */
 
+#footer {
+	background-color: rgba(10, 20, 14, 0.7);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	padding: 0.6rem 1.5rem;
+	border-radius: 6px;
+}
+
 #footer .copyright {
 	opacity: 1;
 	font-size: 0.8rem;
 	font-weight: 400;
-	background-color: rgba(10, 20, 14, 0.6);
-	padding: 0.5rem 1.2rem;
-	border-radius: 6px;
-	backdrop-filter: blur(8px);
-	-webkit-backdrop-filter: blur(8px);
+	color: #ffffff;
+}
+
+/* ==========================================
+   FIX: Don't apply leaf icons to action lists
+   ========================================== */
+
+#main article ul.actions li:before {
+	content: none;
+	display: none;
+}
+
+#main article ul.actions li {
+	padding-left: 0;
 }
