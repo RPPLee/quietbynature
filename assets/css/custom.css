@@ -99,9 +99,17 @@
 }
 
 /* ==========================================
-   NAV BUTTONS - solid dark bg, NO backdrop-filter
-   (backdrop-filter causes flickering on mobile Safari)
+   NAV BUTTONS - remove outer wrapper border,
+   each button gets its own border
    ========================================== */
+
+#header nav ul {
+	border: none !important;
+}
+
+#header nav ul li {
+	border: none !important;
+}
 
 #header nav ul li a {
 	border: solid 1px rgba(255, 255, 255, 0.6) !important;
@@ -118,11 +126,15 @@
 	background-color: rgba(78, 205, 196, 0.35);
 }
 
-/* Mobile stacked buttons: gap between them, each has own border */
+/* Desktop: small gap between side-by-side buttons */
+#header nav ul li {
+	margin: 0 0.35rem;
+}
+
+/* Mobile stacked buttons: gap between them */
 @media screen and (max-width: 480px) {
 	#header nav ul li {
-		border-top: none !important;
-		margin-bottom: 0.75rem;
+		margin: 0 0 0.75rem 0;
 	}
 
 	#header nav ul li:last-child {
