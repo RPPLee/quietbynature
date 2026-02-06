@@ -7,20 +7,32 @@
 */
 
 /* ==========================================
-   FROSTED DARK PANEL behind all header content
-   This is the key fix: instead of fighting the
-   forest texture with shadows, we put a real
-   dark surface behind the text.
+   HEADER - no panel, text sits on the forest
    ========================================== */
 
 #header {
 	background-image: none !important;
-	background-color: rgba(10, 20, 14, 0.65);
-	backdrop-filter: blur(8px) saturate(1.2);
-	-webkit-backdrop-filter: blur(8px) saturate(1.2);
-	padding: 2.5rem 3rem;
-	border-radius: 12px;
-	border: 1px solid rgba(78, 205, 196, 0.15);
+	background-color: transparent;
+}
+
+/* ==========================================
+   TEXT SHADOWS for readability on forest
+   ========================================== */
+
+#header .content .inner h1 {
+	color: #ffffff;
+	font-weight: 600;
+	letter-spacing: 0.35rem;
+	text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+#header .content .inner p {
+	text-transform: none;
+	letter-spacing: 0.1rem;
+	opacity: 1;
+	font-weight: 400;
+	font-size: 1.05rem;
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================
@@ -36,7 +48,7 @@
 }
 
 /* ==========================================
-   HEADER CONTENT
+   HEADER CONTENT BORDERS
    ========================================== */
 
 #header .content {
@@ -47,22 +59,6 @@
 /* Connecting lines between logo/content/nav */
 #header > *:before {
 	background: rgba(255, 255, 255, 0.4) !important;
-}
-
-/* Main heading */
-#header .content .inner h1 {
-	color: #ffffff;
-	font-weight: 600;
-	letter-spacing: 0.35rem;
-}
-
-/* Tagline */
-#header .content .inner p {
-	text-transform: none;
-	letter-spacing: 0.1rem;
-	opacity: 1;
-	font-weight: 400;
-	font-size: 1.05rem;
 }
 
 /* ==========================================
@@ -84,37 +80,38 @@
 }
 
 /* ==========================================
-   NAV BUTTONS
+   NAV BUTTONS - frosted dark glass
    ========================================== */
 
 #header nav ul li a {
 	border-color: rgba(255, 255, 255, 0.6);
 	border-width: 1px;
-	background-color: rgba(255, 255, 255, 0.08);
+	background-color: rgba(0, 0, 0, 0.35);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
 	font-weight: 400;
 }
 
 #header nav ul li a:hover {
-	background-color: rgba(78, 205, 196, 0.2);
+	background-color: rgba(78, 205, 196, 0.25);
 	border-color: #4ECDC4;
 }
 
 #header nav ul li a:active {
-	background-color: rgba(78, 205, 196, 0.3);
+	background-color: rgba(78, 205, 196, 0.35);
 }
 
 /* ==========================================
-   BACKGROUND - keep it bright, the panel
-   handles contrast now
+   BACKGROUND OVERLAY - moderate darkening
    ========================================== */
 
 #bg:before {
 	background-image: linear-gradient(
 		to top,
-		rgba(10, 20, 14, 0.45),
-		rgba(10, 20, 14, 0.2) 40%,
-		rgba(10, 20, 14, 0.2) 60%,
-		rgba(10, 20, 14, 0.45)
+		rgba(10, 20, 14, 0.5),
+		rgba(10, 20, 14, 0.3) 40%,
+		rgba(10, 20, 14, 0.3) 60%,
+		rgba(10, 20, 14, 0.5)
 	), url("../../images/overlay.png") !important;
 }
 
@@ -212,22 +209,20 @@ button.primary:hover,
 }
 
 /* ==========================================
-   FOOTER - clear and readable
+   FOOTER - small frosted pill, just the text
    ========================================== */
-
-#footer {
-	background-color: rgba(10, 20, 14, 0.7);
-	backdrop-filter: blur(8px);
-	-webkit-backdrop-filter: blur(8px);
-	padding: 0.6rem 1.5rem;
-	border-radius: 6px;
-}
 
 #footer .copyright {
 	opacity: 1;
 	font-size: 0.8rem;
 	font-weight: 400;
 	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	padding: 0.4rem 1rem;
+	border-radius: 4px;
+	display: inline-block;
 }
 
 /* ==========================================
