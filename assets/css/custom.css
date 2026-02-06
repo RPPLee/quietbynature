@@ -6,7 +6,42 @@
 	- Dark olive/gray: #6B6B54 (subtle text)
 */
 
-/* Logo icon color */
+/* ==========================================
+   LEGIBILITY: text shadows + backdrop for
+   readability over the busy forest background
+   ========================================== */
+
+#header .content .inner h1,
+#header .content .inner p,
+#header nav ul li a,
+#footer .copyright {
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Darken the background overlay more for contrast */
+#bg:before {
+	background-image: linear-gradient(
+		to top,
+		rgba(10, 20, 14, 0.7),
+		rgba(10, 20, 14, 0.5) 40%,
+		rgba(10, 20, 14, 0.55) 60%,
+		rgba(10, 20, 14, 0.7)
+	), url("../../images/overlay.png") !important;
+}
+
+/* Radial darkening behind center content */
+#bg:after {
+	filter: brightness(0.75);
+}
+
+body.is-article-visible #bg:after {
+	filter: blur(0.2rem) brightness(0.7);
+}
+
+/* ==========================================
+   LOGO
+   ========================================== */
+
 #header .logo {
 	border-color: #4ECDC4;
 }
@@ -15,9 +50,13 @@
 	color: #4ECDC4;
 }
 
-/* Header content border */
+/* ==========================================
+   HEADER CONTENT
+   ========================================== */
+
 #header .content {
-	border-color: #4ECDC4;
+	border-color: rgba(78, 205, 196, 0.6);
+	border-width: 2px;
 }
 
 /* Main heading */
@@ -27,47 +66,64 @@
 	letter-spacing: 0.35rem;
 }
 
-/* Tagline */
+/* Tagline - bumped weight and opacity */
 #header .content .inner p {
 	text-transform: none;
 	letter-spacing: 0.1rem;
-	opacity: 0.85;
+	opacity: 1;
+	font-weight: 400;
+	font-size: 1.05rem;
 }
 
-/* Coming Soon badge */
+/* ==========================================
+   COMING SOON BADGE - solid fill for visibility
+   ========================================== */
+
 .coming-soon {
 	display: inline-block;
 	margin-top: 0.5rem;
-	padding: 0.35rem 1.5rem;
-	border: 2px solid #E8751A;
+	padding: 0.45rem 1.8rem;
+	background-color: #E8751A;
+	border: none;
 	border-radius: 3px;
-	color: #E8751A;
+	color: #ffffff;
 	font-weight: 600;
 	font-size: 0.85rem;
 	letter-spacing: 0.25rem;
 	text-transform: uppercase;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Nav button borders */
+/* ==========================================
+   NAV BUTTONS - more opaque, backdrop blur
+   ========================================== */
+
 #header nav ul li a {
-	border-color: rgba(78, 205, 196, 0.4);
+	border-color: rgba(255, 255, 255, 0.5);
+	border-width: 2px;
+	background-color: rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	font-weight: 400;
 }
 
 #header nav ul li a:hover {
-	background-color: rgba(78, 205, 196, 0.12);
+	background-color: rgba(78, 205, 196, 0.2);
 	border-color: #4ECDC4;
 }
 
 #header nav ul li a:active {
-	background-color: rgba(78, 205, 196, 0.2);
+	background-color: rgba(78, 205, 196, 0.3);
 }
 
-/* Article heading borders */
+/* ==========================================
+   ARTICLE STYLES (modals)
+   ========================================== */
+
 h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
 	border-bottom-color: #4ECDC4;
 }
 
-/* Article headings */
 #main article h2.major {
 	color: #E8751A;
 }
@@ -109,7 +165,10 @@ h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
 	line-height: 1.8;
 }
 
-/* Links */
+/* ==========================================
+   LINKS
+   ========================================== */
+
 a {
 	border-bottom-color: rgba(78, 205, 196, 0.4);
 }
@@ -118,7 +177,10 @@ a:hover {
 	color: #4ECDC4;
 }
 
-/* Form inputs focus state */
+/* ==========================================
+   FORM OVERRIDES
+   ========================================== */
+
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -147,13 +209,17 @@ button.primary:hover,
 	background-color: #d06815 !important;
 }
 
-/* Subtle background tint on overlay for nature feel */
-#bg:before {
-	background-image: linear-gradient(to top, rgba(15, 30, 20, 0.55), rgba(15, 30, 20, 0.45)), url("../../images/overlay.png") !important;
-}
+/* ==========================================
+   FOOTER - much more visible
+   ========================================== */
 
-/* Footer */
 #footer .copyright {
-	opacity: 0.6;
-	font-size: 0.75rem;
+	opacity: 0.85;
+	font-size: 0.8rem;
+	font-weight: 400;
+	background-color: rgba(0, 0, 0, 0.3);
+	padding: 0.4rem 1rem;
+	border-radius: 3px;
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
 }
