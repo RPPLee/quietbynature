@@ -7,35 +7,20 @@
 */
 
 /* ==========================================
-   LEGIBILITY: text shadows + backdrop for
-   readability over the busy forest background
+   FROSTED DARK PANEL behind all header content
+   This is the key fix: instead of fighting the
+   forest texture with shadows, we put a real
+   dark surface behind the text.
    ========================================== */
 
-#header .content .inner h1,
-#header .content .inner p,
-#header nav ul li a,
-#footer .copyright {
-	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Darken the background overlay more for contrast */
-#bg:before {
-	background-image: linear-gradient(
-		to top,
-		rgba(10, 20, 14, 0.7),
-		rgba(10, 20, 14, 0.5) 40%,
-		rgba(10, 20, 14, 0.55) 60%,
-		rgba(10, 20, 14, 0.7)
-	), url("../../images/overlay.png") !important;
-}
-
-/* Radial darkening behind center content */
-#bg:after {
-	filter: brightness(0.75);
-}
-
-body.is-article-visible #bg:after {
-	filter: blur(0.2rem) brightness(0.7);
+#header {
+	background-image: none !important;
+	background-color: rgba(10, 20, 14, 0.65);
+	backdrop-filter: blur(8px) saturate(1.2);
+	-webkit-backdrop-filter: blur(8px) saturate(1.2);
+	padding: 2.5rem 3rem;
+	border-radius: 12px;
+	border: 1px solid rgba(78, 205, 196, 0.15);
 }
 
 /* ==========================================
@@ -55,8 +40,13 @@ body.is-article-visible #bg:after {
    ========================================== */
 
 #header .content {
-	border-color: rgba(78, 205, 196, 0.6);
-	border-width: 2px;
+	border-color: rgba(78, 205, 196, 0.5);
+	border-width: 1px;
+}
+
+/* Connecting lines between logo/content/nav */
+#header > *:before {
+	background: rgba(255, 255, 255, 0.4) !important;
 }
 
 /* Main heading */
@@ -66,7 +56,7 @@ body.is-article-visible #bg:after {
 	letter-spacing: 0.35rem;
 }
 
-/* Tagline - bumped weight and opacity */
+/* Tagline */
 #header .content .inner p {
 	text-transform: none;
 	letter-spacing: 0.1rem;
@@ -76,7 +66,7 @@ body.is-article-visible #bg:after {
 }
 
 /* ==========================================
-   COMING SOON BADGE - solid fill for visibility
+   COMING SOON BADGE - solid orange fill
    ========================================== */
 
 .coming-soon {
@@ -91,19 +81,16 @@ body.is-article-visible #bg:after {
 	font-size: 0.85rem;
 	letter-spacing: 0.25rem;
 	text-transform: uppercase;
-	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* ==========================================
-   NAV BUTTONS - more opaque, backdrop blur
+   NAV BUTTONS
    ========================================== */
 
 #header nav ul li a {
-	border-color: rgba(255, 255, 255, 0.5);
-	border-width: 2px;
-	background-color: rgba(0, 0, 0, 0.25);
-	backdrop-filter: blur(4px);
-	-webkit-backdrop-filter: blur(4px);
+	border-color: rgba(255, 255, 255, 0.6);
+	border-width: 1px;
+	background-color: rgba(255, 255, 255, 0.08);
 	font-weight: 400;
 }
 
@@ -114,6 +101,21 @@ body.is-article-visible #bg:after {
 
 #header nav ul li a:active {
 	background-color: rgba(78, 205, 196, 0.3);
+}
+
+/* ==========================================
+   BACKGROUND - keep it bright, the panel
+   handles contrast now
+   ========================================== */
+
+#bg:before {
+	background-image: linear-gradient(
+		to top,
+		rgba(10, 20, 14, 0.45),
+		rgba(10, 20, 14, 0.2) 40%,
+		rgba(10, 20, 14, 0.2) 60%,
+		rgba(10, 20, 14, 0.45)
+	), url("../../images/overlay.png") !important;
 }
 
 /* ==========================================
@@ -210,16 +212,16 @@ button.primary:hover,
 }
 
 /* ==========================================
-   FOOTER - much more visible
+   FOOTER - clear and readable
    ========================================== */
 
 #footer .copyright {
-	opacity: 0.85;
+	opacity: 1;
 	font-size: 0.8rem;
 	font-weight: 400;
-	background-color: rgba(0, 0, 0, 0.3);
-	padding: 0.4rem 1rem;
-	border-radius: 3px;
-	backdrop-filter: blur(4px);
-	-webkit-backdrop-filter: blur(4px);
+	background-color: rgba(10, 20, 14, 0.6);
+	padding: 0.5rem 1.2rem;
+	border-radius: 6px;
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
 }
