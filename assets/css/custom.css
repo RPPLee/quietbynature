@@ -104,7 +104,7 @@
    ========================================== */
 
 #header nav ul li a {
-	border: solid 2px rgba(255, 255, 255, 0.7) !important;
+	border: solid 1px rgba(255, 255, 255, 0.6) !important;
 	background-color: rgba(0, 0, 0, 0.45);
 	font-weight: 400;
 }
@@ -118,11 +118,15 @@
 	background-color: rgba(78, 205, 196, 0.35);
 }
 
-/* Override mobile stacked button borders too */
+/* Mobile stacked buttons: gap between them, each has own border */
 @media screen and (max-width: 480px) {
 	#header nav ul li {
-		border-top-color: rgba(255, 255, 255, 0.7) !important;
-		border-top-width: 2px;
+		border-top: none !important;
+		margin-bottom: 0.75rem;
+	}
+
+	#header nav ul li:last-child {
+		margin-bottom: 0;
 	}
 }
 
